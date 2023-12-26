@@ -126,9 +126,20 @@ def enableHermes = project.ext.react.get("enableHermes", false);
 def nativeArchitectures = project.getProperties().get("reactNativeDebugArchitectures")
 
 android {
+    compileSdkVersion 33
+    buildToolsVersion '33.0.0'
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
+
+    dexOptions {
+       javaMaxHeapSize "3g"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
 
     defaultConfig {
         applicationId "com.ppaycodepush"
@@ -203,6 +214,8 @@ dependencies {
 
     implementation project(':react-native-vector-icons')
 
+    implementation project(':react-native-code-push')
+
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'
     }
@@ -234,8 +247,14 @@ task copyDownloadableDepsToLibs(type: Copy) {
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
 
+apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
 project.ext.vectoricons = [
         iconFontNames: ['Poppins-Bold.tff','Poppins-Medium.tff','Poppins-Regular.tff','Poppins-SemiBold.tff','MaterialIcons.ttf', 'Poppins-Italic.tff', 'FontAwesome.ttf', 'FontAwesome5_Brands.ttf','FontAwesome5_Regular.ttf', 'FontAwesome5_Solid.ttf', 'MaterialCommunityIcons.ttf','PlusJakartaSans-Bold.ttf'
         ]
 ]
 apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
+android.buildTypes.each { buildType ->
+    // to prevent incorrect long value restoration from strings.xml we need to wrap it with double quotes
+    // https://github.com/microsoft/cordova-plugin-code-push/issues/264
+    buildType.resValue 'string', "CODE_PUSH_APK_BUILD_TIME", String.format("\"%d\"", System.currentTimeMillis())
+}
