@@ -63,7 +63,7 @@ module.exports = (async () => {
           inlineRequires: true,
         },
       }),
-      // babelTransformerPath: require.resolve('react-native-svg-transformer'),
+      babelTransformerPath: require.resolve('react-native-svg-transformer'),
     },
     server: {
       rewriteRequestUrl: url => {

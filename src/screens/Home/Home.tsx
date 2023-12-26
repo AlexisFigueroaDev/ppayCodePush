@@ -1,15 +1,11 @@
+import {Box} from 'native-base';
 import React from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
 
 const Home = () => {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text
-        style={{
-          color: 'black',
-        }}>
-        Home 1!
-      </Text>
+      <Box>Hello world</Box>
     </View>
   );
 };

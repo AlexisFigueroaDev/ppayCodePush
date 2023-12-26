@@ -10,7 +10,21 @@
     "noEmit": true,
     "strict": true,
     "target": "esnext",
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["./components/*"],
+      "@constants": ["./constants"],
+      "@constants/*": ["./constants/*"],
+      "@hooks/*": ["./hooks/*"],
+      "@navigation/*": ["./navigation/*"],
+      "@screens/*": ["./screens/*"],
+      "@services/*": ["./services/*"],
+      "@store/*": ["./store/*"],
+      "@theme/*": ["./theme/*"],
+      "@ui/*": ["./ui/*"],
+      "@utils/*": ["./utils/*"],
+      "@modules/*": ["./modules/*"]
+    }
   },
   "exclude": [
     "node_modules",

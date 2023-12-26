@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <defs>
+        <filter id="jyhe68rw2a" color-interpolation-filters="auto">
+            <feColorMatrix in="SourceGraphic" values="0 0 0 0 0.282353 0 0 0 0 0.274510 0 0 0 0 0.301961 0 0 0 1.000000 0"/>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g filter="url(#jyhe68rw2a)" transform="translate(-37 -412)">
+            <g>
+                <g stroke="#200E32" stroke-width="1.5">
+                    <path d="M19.21 5.9v8.15c0 3.02-1.89 5.15-4.91 5.15H5.65c-3.02 0-4.9-2.13-4.9-5.15V5.9C.75 2.88 2.64.75 5.65.75h8.65c3.02 0 4.91 2.13 4.91 5.15z" transform="translate(37 412) translate(2 2)"/>
+                    <path d="M3.281 14.432l1.53-1.613c.55-.582 1.475-.585 2.031-.008l.885.903c.597.61 1.59.565 2.131-.094l2.23-2.71c.64-.78 1.813-.828 2.514-.105l2.076 2.142M8.313 7.134c0 .968-.786 1.754-1.754 1.754s-1.753-.786-1.753-1.754S5.591 5.38 6.56 5.38c.968 0 1.754.786 1.754 1.754z" transform="translate(37 412) translate(2 2)"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

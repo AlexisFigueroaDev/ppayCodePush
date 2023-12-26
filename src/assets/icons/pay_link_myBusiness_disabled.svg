@@ -1,0 +1,22 @@
+<svg width="100" height="81" viewBox="0 0 100 81" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter x="-20%" y="-14.5%" width="140%" height="129%" filterUnits="objectBoundingBox" id="53jx7ngcqa">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+            <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" in="shadowBlurOuter1" result="shadowMatrixOuter1"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    <g filter="url(#53jx7ngcqa)" transform="translate(0 -11.883)" fill="none" fill-rule="evenodd" opacity=".9">
+        <g style="mix-blend-mode:darken" transform="translate(15 27)">
+            <path d="M46.701 44.925c0 1.462-1.308 2.648-2.92 2.648H26.62c-1.612 0-2.92-1.186-2.92-2.648V5.22c0-1.462 1.308-2.647 2.92-2.647h17.16c1.612 0 2.92 1.185 2.92 2.647v39.706z" fill="transparent" fill-rule="nonzero"/>
+            <rect fill="#073B4C80" fill-rule="nonzero" x="29.661" y="2.381" width="10.676" height="2.605" rx=".665"/>
+            <path d="M43.065 2C45.238 2 47 3.65 47 5.685v38.63C47 46.35 45.238 48 43.065 48H26.932C24.76 47.999 23 46.35 23 44.315V5.685C23 3.65 24.76 2 26.932 2zm.141.96H26.794C25.25 2.96 24 4.12 24 5.549V44.37c0 1.43 1.25 2.589 2.794 2.589h16.412c1.543 0 2.794-1.159 2.794-2.589V5.55c0-1.43-1.25-2.589-2.794-2.589z" fill="#073B4C80" fill-rule="nonzero"/>
+            <circle stroke="#073B4C80" stroke-width=".8" fill="#e1e1e1" cx="47" cy="26" r="11.6" opacity="1"/>
+            <path d="M46.551 24.652a.831.831 0 0 1 0 1.176c-.212.212-.329.494-.329.794 0 .3.117.582.329.795l3.593 3.593c.438.438 1.15.438 1.589 0l.276-.277c.212-.212.33-.494.33-.794 0-.3-.118-.583-.33-.795l-1.796-1.797a.831.831 0 0 1 1.175-1.175l1.796 1.797c.526.526.816 1.225.816 1.97 0 .744-.29 1.444-.816 1.97l-.276.276a2.778 2.778 0 0 1-1.97.815 2.775 2.775 0 0 1-1.969-.814l-3.593-3.594a2.767 2.767 0 0 1-.816-1.97c0-.744.29-1.444.816-1.97a.83.83 0 0 1 1.175 0zm-1.52-4.838 3.592 3.594c.527.526.816 1.225.816 1.97 0 .744-.29 1.444-.816 1.97a.825.825 0 0 1-1.174 0 .831.831 0 0 1 0-1.175c.212-.213.33-.495.33-.795 0-.3-.118-.582-.33-.794l-3.593-3.594a1.124 1.124 0 0 0-1.589 0l-.276.277c-.212.212-.33.495-.33.795 0 .3.118.582.33.794l1.796 1.797a.831.831 0 0 1-1.175 1.175l-1.796-1.797a2.767 2.767 0 0 1-.816-1.97c0-.744.29-1.443.816-1.97l.276-.276a2.788 2.788 0 0 1 3.939 0z" fill="#073B4C80" fill-rule="nonzero"/>
+        </g>
+    </g>
+</svg>

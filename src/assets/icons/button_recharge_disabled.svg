@@ -1,0 +1,23 @@
+<svg width="100" height="81" viewBox="0 0 100 81" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter x="-20%" y="-14.5%" width="140%" height="129%" filterUnits="objectBoundingBox" id="xf5w8ihbla">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+            <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" in="shadowBlurOuter1" result="shadowMatrixOuter1"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    <g filter="url(#xf5w8ihbla)" transform="translate(0 -11.883)" fill="none" fill-rule="evenodd" >
+        <g transform="translate(15 27)">
+            <path d="M46.701 44.925c0 1.462-1.308 2.648-2.92 2.648H26.62c-1.612 0-2.92-1.186-2.92-2.648V5.22c0-1.462 1.308-2.647 2.92-2.647h17.16c1.612 0 2.92 1.185 2.92 2.647v39.706z" fill="transparent" fill-rule="nonzero"/>
+            <rect fill="#073B4C" fill-rule="nonzero" x="29.661" y="2.381" width="10.676" height="2.605" rx=".665" opacity=".4"/>
+            <path d="M43.065 2C45.238 2 47 3.65 47 5.685v38.63C47 46.35 45.238 48 43.065 48H26.932C24.76 47.999 23 46.35 23 44.315V5.685C23 3.65 24.76 2 26.932 2zm.141.96H26.794C25.25 2.96 24 4.12 24 5.549V44.37c0 1.43 1.25 2.589 2.794 2.589h16.412c1.543 0 2.794-1.159 2.794-2.589V5.55c0-1.43-1.25-2.589-2.794-2.589z" fill="#073B4C" fill-rule="nonzero" opacity=".4"/>
+            <path d="M54 11.5c.966 0 1.841.392 2.475 1.025A3.489 3.489 0 0 1 57.5 15v24.99l-4.167-3.07-3.666 2.7L46 36.92l-3.667 2.7-3.666-2.7-4.167 3.07V15c0-.966.392-1.841 1.025-2.475A3.489 3.489 0 0 1 38 11.5z" stroke="#073B4C" fill="#e1e1e1" stroke-linejoin="round" stroke-opacity=".4" />
+            <path d="M45.92 26.092c-.338 0-.613-.302-.613-.673v-.915h-1.419c-.337 0-.612-.302-.612-.673 0-.371.275-.673.612-.673h2.555c.488 0 .884-.436.884-.972 0-.537-.396-.973-.884-.973h-1.335c-1.162 0-2.108-1.04-2.108-2.318s.946-2.317 2.108-2.317h.2v-.916c0-.37.274-.673.611-.673.338 0 .612.302.612.673v.916h1.132c.337 0 .612.301.612.672 0 .371-.275.673-.612.673h-2.555c-.488 0-.884.436-.884.972 0 .537.396.973.884.973h1.335c1.162 0 2.108 1.04 2.108 2.318 0 1.18-.803 2.17-1.868 2.303l-.152.018v.912c0 .37-.274.673-.612.673" fill="#073B4C" opacity=".4"/>
+            <path stroke="#073B4C" stroke-linecap="round" d="M40.5 29.5h11M40.5 32.5h11" opacity=".4"/>
+        </g>
+    </g>
+</svg>
