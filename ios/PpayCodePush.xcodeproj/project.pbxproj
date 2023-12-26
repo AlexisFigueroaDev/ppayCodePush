@@ -14,7 +14,6 @@
 		80603F4B9BB5579FFE1E8370 /* libPods-PpayCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27CA9A50A6B9022B38F3CCF7 /* libPods-PpayCodePush.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		830838C73EB5626EA55128D5 /* libPods-PpayCodePush-PpayCodePushTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31BD9E762CB2C53263310C3F /* libPods-PpayCodePush-PpayCodePushTests.a */; };
-		EDDADE5E2B3B0F0D001A4BD0 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDC63F932B388E1100D03889 /* FontAwesome5_Solid.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -289,7 +288,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDDADE5E2B3B0F0D001A4BD0 /* FontAwesome5_Solid.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
