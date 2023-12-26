@@ -8,7 +8,12 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 function HomeScreen() {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Home!</Text>
+      <Text
+        style={{
+          color: 'black',
+        }}>
+        Home!
+      </Text>
     </View>
   );
 }
@@ -16,7 +21,12 @@ function HomeScreen() {
 function SettingsScreen() {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Settings!</Text>
+      <Text
+        style={{
+          color: 'black',
+        }}>
+        Billetera!
+      </Text>
     </View>
   );
 }
@@ -31,15 +41,19 @@ function MyTabs() {
         component={HomeScreen}
         options={{
           tabBarLabel: 'Settings',
-          tabBarIcon: ({color, size}) => <Icon name="home" size={size} />,
+          tabBarIcon: ({color, size}) => (
+            <Icon name="home" size={size} color={color} />
+          ),
         }}
       />
       <Tab.Screen
         name="Billetera"
         component={SettingsScreen}
         options={{
-          tabBarLabel: 'Settings',
-          tabBarIcon: ({color, size}) => <Icon name="wallet" size={size} />,
+          tabBarLabel: 'Billetera',
+          tabBarIcon: ({color, size}) => (
+            <Icon name="wallet" size={size} color={color} />
+          ),
         }}
       />
     </Tab.Navigator>
