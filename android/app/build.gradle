@@ -126,9 +126,20 @@ def enableHermes = project.ext.react.get("enableHermes", false);
 def nativeArchitectures = project.getProperties().get("reactNativeDebugArchitectures")
 
 android {
+    compileSdkVersion 33
+    buildToolsVersion '33.0.0'
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
+
+    dexOptions {
+       javaMaxHeapSize "3g"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
 
     defaultConfig {
         applicationId "com.ppaycodepush"
@@ -239,4 +250,9 @@ project.ext.vectoricons = [
         ]
 ]
 apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
+android.buildTypes.each { buildType ->
+    // to prevent incorrect long value restoration from strings.xml we need to wrap it with double quotes
+    // https://github.com/microsoft/cordova-plugin-code-push/issues/264
+    buildType.resValue 'string', "CODE_PUSH_APK_BUILD_TIME", String.format("\"%d\"", System.currentTimeMillis())
+}
 apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
