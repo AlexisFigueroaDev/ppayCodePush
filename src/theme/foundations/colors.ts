@@ -1,4 +1,4 @@
-import { palette } from './palette';
+import {palette} from './palette';
 
 export const colors = {
   primary: {
@@ -73,6 +73,9 @@ export const colors = {
   },
   loyaltySix: {
     20: palette.sugarCrystal,
+  },
+  other: {
+    10: palette.esmeralda,
   },
 };
 

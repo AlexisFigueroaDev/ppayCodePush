@@ -12,7 +12,7 @@ const TabBar = () => {
         name="Inicio"
         component={Home}
         options={{
-          tabBarLabel: 'Settings',
+          tabBarLabel: 'Inicio',
           tabBarIcon: ({color, size}) => (
             <Icon name="home" size={size} color={color} />
           ),

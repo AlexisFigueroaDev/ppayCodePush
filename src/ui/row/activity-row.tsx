@@ -1,18 +1,18 @@
 /* Poodriamos re-ver esto por que en la view de pago de servicios necesitamos que el
   componente reciba el border y las imagenes.
 */
-import React, { FC } from 'react';
-import { Dimensions } from 'react-native';
+import React, {FC} from 'react';
+import {Dimensions} from 'react-native';
 
-import { Box, Pressable, Flex, Image } from 'native-base';
+import {Box, Pressable, Flex, Image} from 'native-base';
 
-import { REJECTED, APPROVED, PENDING } from '@constants';
+import {REJECTED, APPROVED, PENDING} from '@constants';
 
-import { ActivityRowProps, colorBy } from './type';
-import { Icon } from '../icon';
-import { HStack, VStack } from '../layout';
-import { Pill } from '../pill';
-import { KeyTextColors, Text } from '../text';
+import {ActivityRowProps, colorBy} from './type';
+import {Icon} from '../icon';
+import {HStack, VStack} from '../layout';
+import {Pill} from '../pill';
+import {KeyTextColors, Text} from '../text';
 
 export const ActivityRow: FC<ActivityRowProps> = ({
   /** Type of available icon */
@@ -22,7 +22,7 @@ export const ActivityRow: FC<ActivityRowProps> = ({
   /** Description related with the Activity */
   description,
   /** Description color */
-  descriptionColor = "textLight",
+  descriptionColor = 'textLight',
   /** Amount of the Activity */
   amount,
   /** Activity Date */
@@ -49,11 +49,11 @@ export const ActivityRow: FC<ActivityRowProps> = ({
   rightIcon,
 }) => {
   const MAX_FONT_MULTIPLIER = 1.4;
-  const screenDimensions = Dimensions.get('screen')
-  const relation = 2
+  const screenDimensions = Dimensions.get('screen');
+  const relation = 2;
   const TITLE_CONTAINER_STYLE = {
-    width: screenDimensions.width / relation
-  }
+    width: screenDimensions.width / relation,
+  };
 
   const getSign = (value: string): string =>
     value?.charAt(0) === '-' ? '-' : '+';
@@ -80,8 +80,7 @@ export const ActivityRow: FC<ActivityRowProps> = ({
               <Text
                 maxFontMultiplier={MAX_FONT_MULTIPLIER}
                 variant="body-xs"
-                color={pillRightTitleColor}
-              >
+                color={pillRightTitleColor}>
                 {pillRightTitle}
               </Text>
             ) : null}
@@ -90,19 +89,17 @@ export const ActivityRow: FC<ActivityRowProps> = ({
         <Flex direction="row" justifyContent="space-between">
           <HStack space={icon || imgUri ? 2 : 0}>
             <Flex direction="row" alignItems="center">
-              {imgUri ? <Image source={{ uri: imgUri }} size={6} /> : null}
+              {imgUri ? <Image source={{uri: imgUri}} size={6} /> : null}
               {icon ? <Icon name={icon} color="info" size="24" /> : null}
             </Flex>
             <Box
               justifyContent={description === '' ? 'center' : 'flex-start'}
-              style={TITLE_CONTAINER_STYLE}
-            >
+              style={TITLE_CONTAINER_STYLE}>
               <Text
                 maxFontMultiplier={MAX_FONT_MULTIPLIER}
                 variant="bodyBold-md"
                 color="text"
-                isTruncated
-              >
+                isTruncated>
                 {title}
               </Text>
               {description !== '' ? (
@@ -110,8 +107,7 @@ export const ActivityRow: FC<ActivityRowProps> = ({
                   maxFontMultiplier={MAX_FONT_MULTIPLIER}
                   variant="body-sm"
                   color={descriptionColor}
-                  isTruncated
-                >
+                  isTruncated>
                   {description}
                 </Text>
               ) : null}
@@ -123,8 +119,7 @@ export const ActivityRow: FC<ActivityRowProps> = ({
                 <Text
                   variant="bodyBold-md"
                   maxFontMultiplier={MAX_FONT_MULTIPLIER}
-                  color={formatAmountStyle(status, String(amount))}
-                >
+                  color={formatAmountStyle(status, String(amount))}>
                   {amount}
                 </Text>
               ) : null}
@@ -132,8 +127,7 @@ export const ActivityRow: FC<ActivityRowProps> = ({
                 <Text
                   maxFontMultiplier={MAX_FONT_MULTIPLIER}
                   variant="body-sm"
-                  color="text"
-                >
+                  color="text">
                   {date}
                 </Text>
               ) : null}
@@ -149,21 +143,18 @@ export const ActivityRow: FC<ActivityRowProps> = ({
             justifyContent="space-between"
             p={1}
             borderRadius="xs"
-            bg="primaryDark.10"
-          >
+            bg="primaryDark.10">
             <Text
               maxFontMultiplier={MAX_FONT_MULTIPLIER}
               variant="body-sm"
-              color="text"
-            >
+              color="text">
               {footerTitle}
             </Text>
             {footerDescription ? (
               <Text
                 maxFontMultiplier={MAX_FONT_MULTIPLIER}
                 variant="body-sm"
-                color="text"
-              >
+                color="text">
                 {footerDescription}
               </Text>
             ) : null}

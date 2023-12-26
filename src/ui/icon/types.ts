@@ -144,6 +144,7 @@ import Unicorn from '../../assets/icons/personalpay/unicorn.svg';
 import BadgeLvl2small from '../../assets/illustrations/badge-lvl-2-small.svg';
 import BadgeLvl3small from '../../assets/illustrations/badge-lvl-3-small.svg';
 import BadgeReward from '../../assets/illustrations/badge-reward.svg';
+import Billete from '../../assets/icons/wing_cash.svg';
 import {colors} from '../../theme/foundations/colors';
 
 export const IconPaths = {
@@ -303,6 +304,9 @@ export const IconPaths = {
   MasterCard,
   Cabal,
   DinersClub,
+
+  //Other
+  Billete,
 };
 
 export type KeyTextIcons = keyof typeof IconPaths;

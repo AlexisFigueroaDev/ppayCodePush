@@ -60,4 +60,5 @@ export const palette = {
   lightOpale: '#C0EAE8',
   northWind: '#49C6BF',
   sugarCrystal: '#F8F4FF',
+  esmeralda: '#72EFD3',
 } as const;

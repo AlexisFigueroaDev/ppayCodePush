@@ -1,12 +1,12 @@
-import React, { FC } from 'react'
+import React, {FC} from 'react';
 
-import { Box, Stack, Pressable, Skeleton, Flex } from 'native-base'
+import {Box, Stack, Pressable, Skeleton, Flex} from 'native-base';
 
-import { BlanceRowProps, LARGE, SMALL, typeConfig } from './type'
-import { splitAmountToInput } from './utils/formatters'
-import { dottedNumber } from '../../utils'
-import { Icon } from '../icon'
-import { Text } from '../text'
+import {BlanceRowProps, LARGE, SMALL, typeConfig} from './type';
+import {splitAmountToInput} from './utils/formatters';
+import {dottedNumber} from '../../utils';
+import {Icon} from '../icon';
+import {Text} from '../text';
 
 export const BalanceRow: FC<BlanceRowProps> = ({
   /*  Amount or vlaue to show */
@@ -22,9 +22,9 @@ export const BalanceRow: FC<BlanceRowProps> = ({
   /* action when component is presseable */
   onPress,
 }) => {
-  const { numbers, decimals } = splitAmountToInput(value)
+  const {numbers, decimals} = splitAmountToInput(value);
 
-  const { containerH, numbersVariant, decimalVariant } = typeConfig(variant)
+  const {containerH, numbersVariant, decimalVariant} = typeConfig(variant);
 
   const content = (
     <>
@@ -44,7 +44,7 @@ export const BalanceRow: FC<BlanceRowProps> = ({
         </Box>
       )}
     </>
-  )
+  );
 
   if (isLoading) {
     return (
@@ -58,7 +58,7 @@ export const BalanceRow: FC<BlanceRowProps> = ({
           </Box>
         )}
       </Flex>
-    )
+    );
   }
 
   if (onPress && !isLoading && variant !== SMALL) {
@@ -66,7 +66,7 @@ export const BalanceRow: FC<BlanceRowProps> = ({
       <Pressable variant="presseable-balance-row" onPress={onPress}>
         {content}
       </Pressable>
-    )
+    );
   }
-  return <Flex variant="balance-row">{content}</Flex>
-}
+  return <Flex variant="balance-row">{content}</Flex>;
+};
