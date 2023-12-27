@@ -54,17 +54,22 @@ const useCodePush = (): UseCodePushReturn => {
 
   useEffect(() => {
     SplashScreen.hide({fade: true});
-
-    codePush.notifyAppReady();
-    codePush.checkForUpdate().then(update => {
-      if (update) {
-        codePush.sync(
-          {installMode: codePush.InstallMode.IMMEDIATE},
-          syncStatusChangedCallback,
-          downloadProgressCallback,
-        );
+    const checkForUpdates = async () => {
+      try {
+        codePush.notifyAppReady();
+        const update = await codePush.checkForUpdate();
+        if (update) {
+          codePush.sync(
+            {installMode: codePush.InstallMode.IMMEDIATE},
+            syncStatusChangedCallback,
+            downloadProgressCallback,
+          );
+        }
+      } catch (error) {
+        console.error('ERROOOOOOR:', error);
       }
-    });
+    };
+    checkForUpdates();
   }, []);
 
   return {
@@ -74,3 +79,20 @@ const useCodePush = (): UseCodePushReturn => {
 };
 
 export default useCodePush;
+/*
+  useEffect(() => {
+    const checkForUpdates = async () => {
+      try {
+        const update = await codePush.checkForUpdate();
+        // const update = true;
+        if (update) {
+          showUpdateDialog();
+        }
+      } catch (error) {
+        console.error('Error checking for update::', error);
+      }
+    };
+
+    checkForUpdates();
+  }, []);
+*/
