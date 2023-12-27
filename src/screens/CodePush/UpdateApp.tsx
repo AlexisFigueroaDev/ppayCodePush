@@ -26,11 +26,11 @@ const UpdateApp: React.FC<IUpdateApp> = ({
       </Box>
 
       <Box justifyContent="center" alignItems="center" flex={1}>
-        <Box marginY={2}>
+        {/* <Box marginY={2}>
           <Text variant="bodyBold-lg" color="white">
             LOGS:
           </Text>
-        </Box>
+        </Box> */}
         <Box marginY={2}>
           <Text variant="bodyBold-lg" color="white">
             {header}
@@ -46,7 +46,7 @@ const UpdateApp: React.FC<IUpdateApp> = ({
             {progress}
           </Text>
         </Box>
-        <Box marginY={2}>
+        {/* <Box marginY={2}>
           <Text variant="bodyBold-lg" color="white">
             {`syncMessage: ${syncMessage}`}
           </Text>
@@ -70,7 +70,7 @@ const UpdateApp: React.FC<IUpdateApp> = ({
           <Text variant="bodyBold-lg" color="white">
             {`syncStatusPush: ${syncStatusPush}`}
           </Text>
-        </Box>
+        </Box> */}
       </Box>
     </Flex>
   );
