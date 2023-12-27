@@ -14,7 +14,7 @@ const UpdateApp: React.FC<IUpdateApp> = ({
   header = 'Downloading...',
   subHeader = 'Nueva actualizacion disponible',
 }) => {
-  const {progress, syncMessage, updateCheck} = useCodePush();
+  const {progress, syncMessage, updateCheck, catchError} = useCodePush();
 
   return (
     <Flex backgroundColor={colors.secondaryFive['60']} flex={1}>
@@ -53,6 +53,11 @@ const UpdateApp: React.FC<IUpdateApp> = ({
         <Box marginY={2}>
           <Text variant="bodyBold-lg" color="white">
             {`updateCheck: ${updateCheck}`}
+          </Text>
+        </Box>
+        <Box marginY={2}>
+          <Text variant="bodyBold-lg" color="white">
+            {`catchError: ${catchError}`}
           </Text>
         </Box>
       </Box>

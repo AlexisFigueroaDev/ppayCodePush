@@ -7,12 +7,14 @@ interface UseCodePushReturn {
   syncMessage?: string;
   progress?: string;
   updateCheck?: unknown;
+  catchError?: unknown;
 }
 
 const useCodePush = (): UseCodePushReturn => {
   const [syncMessage, setSyncMessage] = useState<string>();
   const [progress, setProgress] = useState<string>();
   const [updateCheck, setUpdateCheck] = useState<unknown>();
+  const [catchError, setCatchError] = useState<unknown>();
 
   const syncStatusChangedCallback = (syncStatus: codePush.SyncStatus) => {
     switch (syncStatus) {
@@ -63,16 +65,15 @@ const useCodePush = (): UseCodePushReturn => {
         const update = await codePush.checkForUpdate();
         setUpdateCheck(update);
         if (update) {
-          setTimeout(() => {
-            codePush.sync(
-              {installMode: codePush.InstallMode.IMMEDIATE},
-              syncStatusChangedCallback,
-              downloadProgressCallback,
-            );
-          }, 3000);
+          codePush.sync(
+            {installMode: codePush.InstallMode.IMMEDIATE},
+            syncStatusChangedCallback,
+            downloadProgressCallback,
+          );
         }
       } catch (error) {
         console.error('ERROOOOOOR:', error);
+        setCatchError(error);
       }
     };
     checkForUpdates();
@@ -82,6 +83,7 @@ const useCodePush = (): UseCodePushReturn => {
     syncMessage,
     progress,
     updateCheck,
+    catchError,
   };
 };
 
