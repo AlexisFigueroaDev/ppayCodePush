@@ -27,13 +27,23 @@ const PrepaidCardHome = () => {
         </FullWidthSolidButton>
       </Box>
 
-      <Backdrop isOpen={open} onClose={handleBackdrop} title={'Resultado 1'}>
-        <Text>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quis
-          aliquid iure, nihil vel eveniet blanditiis officia laborum numquam
-          explicabo quos dolore nostrum doloremque asperiores, nemo non ipsum
-          odio impedit.
-        </Text>
+      <Backdrop isOpen={open} onClose={handleBackdrop} title={'Resultado'}>
+        <Box marginY={2}>
+          <Text variant="body-sm">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quis
+            aliquid iure, nihil vel eveniet blanditiis officia laborum numquam
+            explicabo quos dolore nostrum doloremque asperiores, nemo non ipsum
+            odio impedit.
+          </Text>
+        </Box>
+        <Box marginBottom={2}>
+          <Text variant="body-sm">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quis
+            aliquid iure, nihil vel eveniet blanditiis officia laborum numquam
+            explicabo quos dolore nostrum doloremque asperiores, nemo non ipsum
+            odio impedit.
+          </Text>
+        </Box>
       </Backdrop>
     </>
   );
