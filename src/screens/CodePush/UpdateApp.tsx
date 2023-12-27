@@ -3,6 +3,7 @@ import {Text} from '@ui/text';
 import {Box, Flex, StatusBar} from 'native-base';
 import React from 'react';
 import {Platform} from 'react-native';
+import useCodePush from './hook/UseCodePush';
 interface IUpdateApp {
   header?: string;
   subHeader?: string;
@@ -12,8 +13,9 @@ interface IUpdateApp {
 const UpdateApp: React.FC<IUpdateApp> = ({
   header = 'Downloading...',
   subHeader = 'Nueva actualizacion disponible',
-  progress = '0%',
 }) => {
+  const {progress, syncMessage} = useCodePush();
+
   return (
     <Flex backgroundColor={colors.secondaryFive['60']} flex={1}>
       <Box
@@ -30,7 +32,7 @@ const UpdateApp: React.FC<IUpdateApp> = ({
         </Box>
         <Box marginY={2}>
           <Text variant="bodyBold-lg" color="white">
-            {subHeader}
+            {syncMessage ? syncMessage : subHeader}
           </Text>
         </Box>
         <Box marginY={2}>

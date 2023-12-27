@@ -8,7 +8,7 @@ import TabBar from './Tab-bar/TabBar';
 
 const RootNavigation: React.FC = () => {
   // const codePushUpdate = true;
-  const {progress, syncMessage} = useCodePush();
+  // const {progress, syncMessage} = useCodePush();
 
   const checkUpdate = async () => {
     const update = await CodePush.checkForUpdate();
@@ -17,15 +17,9 @@ const RootNavigation: React.FC = () => {
 
   const update = checkUpdate();
 
-  console.log('progress', progress);
-  console.log('syncMessage', syncMessage);
   return (
     <NavigationContainer>
-      {!!update ? (
-        <UpdateApp progress={progress} subHeader={syncMessage} />
-      ) : (
-        <AppStack />
-      )}
+      {!!update ? <UpdateApp /> : <AppStack />}
     </NavigationContainer>
   );
 };
