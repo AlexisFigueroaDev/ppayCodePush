@@ -62,7 +62,7 @@ const useCodePush = (): UseCodePushReturn => {
     SplashScreen.hide({fade: true});
     const checkForUpdates = async () => {
       codePush.notifyAppReady();
-      codePush.CheckFrequency.ON_APP_START;
+      codePush.CheckFrequency.ON_APP_RESUME;
       try {
         const update = await codePush.checkForUpdate();
         setUpdateCheck(JSON.stringify(update));
