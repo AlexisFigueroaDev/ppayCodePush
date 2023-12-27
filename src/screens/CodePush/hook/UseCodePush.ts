@@ -66,7 +66,7 @@ const useCodePush = (): UseCodePushReturn => {
       try {
         const update = await codePush.checkForUpdate();
         setUpdateCheck(JSON.stringify(update));
-        setSyncStatusPush(codePush.SyncStatus);
+        setSyncStatusPush(JSON.stringify(codePush.SyncStatus));
         if (update) {
           codePush.sync(
             {installMode: codePush.InstallMode.IMMEDIATE},
