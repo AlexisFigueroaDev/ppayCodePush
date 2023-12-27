@@ -5,6 +5,8 @@ import {Icon} from '@ui/icon';
 import {Text} from '@ui/text';
 import {Platform} from 'react-native';
 import {Avatar} from '@ui/avatar';
+import {IconButtonTransparent} from '@ui/button/icon-button-transparent';
+import {getVersion} from 'react-native-device-info';
 
 const HeaderHome = () => {
   return (
@@ -62,9 +64,17 @@ const HeaderHome = () => {
             <Box
               backgroundColor={colors.primary[60]}
               rounded={'sm'}
-              padding={4}
-              marginTop={4}>
-              <Icon name={'BellDefault'} size={'20'} color={'white'} />
+              padding={3}
+              marginTop={3}>
+              <IconButtonTransparent
+                name={'BellDefault'}
+                size={'md'}
+                onPress={() => {
+                  console.log(getVersion());
+                }}
+                testID={''}
+              />
+              {/* <Icon name={'BellDefault'} size={'20'} color={'white'} /> */}
             </Box>
           </HStack>
         </HStack>
