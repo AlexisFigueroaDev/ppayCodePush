@@ -14,6 +14,4 @@ const App = () => {
 
 export default codePush({
   checkFrequency: codePush.CheckFrequency.ON_APP_RESUME,
-  installMode: codePush.InstallMode.IMMEDIATE,
-  updateDialog: true,
 })(App);

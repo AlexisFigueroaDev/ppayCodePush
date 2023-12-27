@@ -7,7 +7,10 @@ import TabBar from './Tab-bar/TabBar';
 
 const RootNavigation = () => {
   const codePushUpdate = true;
-  const {progress, syncMessage} = useCodePush(codePushUpdate);
+  const {progress, syncMessage} = useCodePush(!codePushUpdate);
+
+  console.log('progress', progress);
+  console.log('syncMessage', syncMessage);
   return (
     <NavigationContainer>
       {progress || syncMessage ? (
