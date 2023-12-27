@@ -5,6 +5,7 @@ import React, {useEffect, useState} from 'react';
 import CodePush from 'react-native-code-push';
 import AppStack from './AppStack/AppStack';
 import TabBar from './Tab-bar/TabBar';
+import codePush from 'react-native-code-push';
 
 const RootNavigation: React.FC = () => {
   // const codePushUpdate = true;
