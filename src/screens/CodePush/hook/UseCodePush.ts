@@ -55,15 +55,18 @@ const useCodePush = (): UseCodePushReturn => {
   useEffect(() => {
     SplashScreen.hide({fade: true});
     const checkForUpdates = async () => {
+      codePush.notifyAppReady();
+
       try {
-        codePush.notifyAppReady();
         const update = await codePush.checkForUpdate();
         if (update) {
-          codePush.sync(
-            {installMode: codePush.InstallMode.IMMEDIATE},
-            syncStatusChangedCallback,
-            downloadProgressCallback,
-          );
+          setTimeout(() => {
+            codePush.sync(
+              {installMode: codePush.InstallMode.IMMEDIATE},
+              syncStatusChangedCallback,
+              downloadProgressCallback,
+            );
+          }, 3000);
         }
       } catch (error) {
         console.error('ERROOOOOOR:', error);

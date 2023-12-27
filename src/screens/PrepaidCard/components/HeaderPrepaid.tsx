@@ -12,7 +12,6 @@ const HeaderPrepaid = () => {
           barStyle={'dark-content'}
         />
       </Box>
-      {/* <Box backgroundColor={colors.other[10]} height={'10'}></Box> */}
     </>
   );
 };
