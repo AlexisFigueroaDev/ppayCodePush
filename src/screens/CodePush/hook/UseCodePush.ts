@@ -8,6 +8,7 @@ interface UseCodePushReturn {
   progress?: string;
   updateCheck?: unknown;
   catchError?: unknown;
+  syncStatusPush?: unknown;
 }
 
 const useCodePush = (): UseCodePushReturn => {
@@ -15,6 +16,7 @@ const useCodePush = (): UseCodePushReturn => {
   const [progress, setProgress] = useState<string>();
   const [updateCheck, setUpdateCheck] = useState<unknown>();
   const [catchError, setCatchError] = useState<unknown>();
+  const [syncStatusPush, setSyncStatusPush] = useState<unknown>();
 
   const syncStatusChangedCallback = (syncStatus: codePush.SyncStatus) => {
     switch (syncStatus) {
@@ -63,7 +65,8 @@ const useCodePush = (): UseCodePushReturn => {
       codePush.CheckFrequency.ON_APP_START;
       try {
         const update = await codePush.checkForUpdate();
-        setUpdateCheck(update);
+        setUpdateCheck(JSON.stringify(update));
+        setSyncStatusPush(codePush.SyncStatus);
         if (update) {
           codePush.sync(
             {installMode: codePush.InstallMode.IMMEDIATE},
@@ -77,13 +80,14 @@ const useCodePush = (): UseCodePushReturn => {
       }
     };
     checkForUpdates();
-  }, []);
+  }, [updateCheck]);
 
   return {
     syncMessage,
     progress,
     updateCheck,
     catchError,
+    syncStatusPush,
   };
 };
 
