@@ -6,7 +6,7 @@ import {Text} from '@ui/text';
 import {Platform} from 'react-native';
 import {Avatar} from '@ui/avatar';
 import {IconButtonTransparent} from '@ui/button/icon-button-transparent';
-import {getVersion, getBuildId} from 'react-native-device-info';
+import {getVersion, getBuildNumber} from 'react-native-device-info';
 import {Backdrop} from '@ui/backdrop';
 
 const HeaderHome = () => {
@@ -18,7 +18,8 @@ const HeaderHome = () => {
   };
 
   const setBuild = () => {
-    getBuildId().then(v => setBuildID(v));
+    // getBuildId().then((v => setBuildID(v)))
+    setBuildID(getBuildNumber());
   };
 
   return (
