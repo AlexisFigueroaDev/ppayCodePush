@@ -12,6 +12,8 @@
 		<string>MaterialCommunityIcons.ttf</string>
 		<string>PlusJakartaSans-Bold.ttf</string>
 	</array>
+	<key>CodePushDeploymentKey</key>
+  <string>bSjbvY-J0IOxo2c0T-3gmVMXx7MpUqAivIX7E</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>

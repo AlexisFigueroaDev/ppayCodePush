@@ -8,12 +8,15 @@ import TabBar from './Tab-bar/TabBar';
 import codePush from 'react-native-code-push';
 
 const RootNavigation: React.FC = () => {
-  // const codePushUpdate = true;
-  // const {progress, syncMessage} = useCodePush();
   const [updatePending, setUpdatePending] = useState(false);
+  const {catchError} = useCodePush();
 
   const checkUpdate = async () => {
     const update = await CodePush.checkForUpdate();
+
+    if (catchError) {
+      return setUpdatePending(false);
+    }
     return setUpdatePending(!!update);
   };
 

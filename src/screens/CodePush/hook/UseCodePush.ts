@@ -15,7 +15,7 @@ const useCodePush = (): UseCodePushReturn => {
   const [syncMessage, setSyncMessage] = useState<string>();
   const [progress, setProgress] = useState<string>();
   const [updateCheck, setUpdateCheck] = useState<unknown>();
-  const [catchError, setCatchError] = useState<unknown>();
+  const [catchError, setCatchError] = useState<boolean>(false);
   const [syncStatusPush, setSyncStatusPush] = useState<unknown>();
 
   const syncStatusChangedCallback = (syncStatus: codePush.SyncStatus) => {
@@ -76,7 +76,7 @@ const useCodePush = (): UseCodePushReturn => {
         }
       } catch (error) {
         console.error('ERROOOOOOR:', error);
-        setCatchError(error);
+        setCatchError(true);
       }
     };
     checkForUpdates();
