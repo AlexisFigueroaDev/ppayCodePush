@@ -19,7 +19,7 @@ const RootNavigation: React.FC = () => {
 
   return (
     <NavigationContainer>
-      {!!update ? <UpdateApp /> : <AppStack />}
+      {update !== null ? <UpdateApp /> : <AppStack />}
     </NavigationContainer>
   );
 };
