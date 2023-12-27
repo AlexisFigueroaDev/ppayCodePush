@@ -73,7 +73,7 @@ const MainPanel = () => {
               lastNumbers={2406}
               onPress={() => {
                 console.log('Click Tarjeta');
-                navigation.navigate('PrepaidCardRoute');
+                navigation.navigate('Wallet');
               }}
               testID=""
             />

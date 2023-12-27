@@ -79,20 +79,3 @@ const useCodePush = (): UseCodePushReturn => {
 };
 
 export default useCodePush;
-/*
-  useEffect(() => {
-    const checkForUpdates = async () => {
-      try {
-        const update = await codePush.checkForUpdate();
-        // const update = true;
-        if (update) {
-          showUpdateDialog();
-        }
-      } catch (error) {
-        console.error('Error checking for update::', error);
-      }
-    };
-
-    checkForUpdates();
-  }, []);
-*/
