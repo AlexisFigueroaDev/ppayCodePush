@@ -27,6 +27,11 @@ const UpdateApp: React.FC<IUpdateApp> = ({
       <Box justifyContent="center" alignItems="center" flex={1}>
         <Box marginY={2}>
           <Text variant="bodyBold-lg" color="white">
+            LOGS:
+          </Text>
+        </Box>
+        <Box marginY={2}>
+          <Text variant="bodyBold-lg" color="white">
             {header}
           </Text>
         </Box>

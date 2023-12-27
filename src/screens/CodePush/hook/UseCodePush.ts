@@ -60,7 +60,7 @@ const useCodePush = (): UseCodePushReturn => {
     SplashScreen.hide({fade: true});
     const checkForUpdates = async () => {
       codePush.notifyAppReady();
-
+      codePush.CheckFrequency.ON_APP_START;
       try {
         const update = await codePush.checkForUpdate();
         setUpdateCheck(update);
