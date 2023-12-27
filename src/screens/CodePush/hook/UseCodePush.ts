@@ -8,7 +8,7 @@ interface UseCodePushReturn {
   progress?: string;
 }
 
-const useCodePush = (isLoading: boolean): UseCodePushReturn => {
+const useCodePush = (): UseCodePushReturn => {
   const [syncMessage, setSyncMessage] = useState<string>();
   const [progress, setProgress] = useState<string>();
 
@@ -53,21 +53,19 @@ const useCodePush = (isLoading: boolean): UseCodePushReturn => {
   };
 
   useEffect(() => {
-    if (!isLoading) {
-      SplashScreen.hide({fade: true});
+    SplashScreen.hide({fade: true});
 
-      codePush.notifyAppReady();
-      codePush.checkForUpdate().then(update => {
-        if (update) {
-          codePush.sync(
-            {installMode: codePush.InstallMode.IMMEDIATE},
-            syncStatusChangedCallback,
-            downloadProgressCallback,
-          );
-        }
-      });
-    }
-  }, [isLoading]);
+    codePush.notifyAppReady();
+    codePush.checkForUpdate().then(update => {
+      if (update) {
+        codePush.sync(
+          {installMode: codePush.InstallMode.IMMEDIATE},
+          syncStatusChangedCallback,
+          downloadProgressCallback,
+        );
+      }
+    });
+  }, []);
 
   return {
     syncMessage,

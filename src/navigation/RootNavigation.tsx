@@ -6,8 +6,8 @@ import AppStack from './AppStack/AppStack';
 import TabBar from './Tab-bar/TabBar';
 
 const RootNavigation = () => {
-  const codePushUpdate = true;
-  const {progress, syncMessage} = useCodePush(!codePushUpdate);
+  // const codePushUpdate = true;
+  const {progress, syncMessage} = useCodePush();
 
   console.log('progress', progress);
   console.log('syncMessage', syncMessage);
