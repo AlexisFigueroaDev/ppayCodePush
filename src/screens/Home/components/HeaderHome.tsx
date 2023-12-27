@@ -11,9 +11,16 @@ import {Backdrop} from '@ui/backdrop';
 
 const HeaderHome = () => {
   const [open, setOpen] = useState(false);
+  const [buildID, setBuildID] = useState('');
   const handleBackdrop = () => {
     setOpen(!open);
+    setBuild();
   };
+
+  const setBuild = () => {
+    getBuildId().then(v => setBuildID(v));
+  };
+
   return (
     <>
       <Box
@@ -114,7 +121,7 @@ const HeaderHome = () => {
 
       <Backdrop isOpen={open} onClose={handleBackdrop} title={'Version'}>
         <Box marginY={2}>
-          <Text variant="body-sm">{`Version: ${getVersion()}-${getBuildId()}`}</Text>
+          <Text variant="body-sm">{`Version: ${getVersion()}-${buildID}`}</Text>
         </Box>
       </Backdrop>
     </>
