@@ -6,11 +6,13 @@ import codePush, {DownloadProgress} from 'react-native-code-push';
 interface UseCodePushReturn {
   syncMessage?: string;
   progress?: string;
+  updateCheck?: unknown;
 }
 
 const useCodePush = (): UseCodePushReturn => {
   const [syncMessage, setSyncMessage] = useState<string>();
   const [progress, setProgress] = useState<string>();
+  const [updateCheck, setUpdateCheck] = useState<unknown>();
 
   const syncStatusChangedCallback = (syncStatus: codePush.SyncStatus) => {
     switch (syncStatus) {
@@ -59,6 +61,7 @@ const useCodePush = (): UseCodePushReturn => {
 
       try {
         const update = await codePush.checkForUpdate();
+        setUpdateCheck(update);
         if (update) {
           setTimeout(() => {
             codePush.sync(
@@ -78,6 +81,7 @@ const useCodePush = (): UseCodePushReturn => {
   return {
     syncMessage,
     progress,
+    updateCheck,
   };
 };
 
