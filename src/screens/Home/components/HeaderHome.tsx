@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Box, Flex, HStack, StatusBar, VStack} from 'native-base';
 import {colors} from '@theme/foundations/colors';
 import {Icon} from '@ui/icon';
@@ -7,8 +7,13 @@ import {Platform} from 'react-native';
 import {Avatar} from '@ui/avatar';
 import {IconButtonTransparent} from '@ui/button/icon-button-transparent';
 import {getVersion} from 'react-native-device-info';
+import {Backdrop} from '@ui/backdrop';
 
 const HeaderHome = () => {
+  const [open, setOpen] = useState(false);
+  const handleBackdrop = () => {
+    setOpen(!open);
+  };
   return (
     <>
       <Box
@@ -69,9 +74,7 @@ const HeaderHome = () => {
               <IconButtonTransparent
                 name={'BellDefault'}
                 size={'md'}
-                onPress={() => {
-                  console.log(getVersion());
-                }}
+                onPress={handleBackdrop}
                 testID={''}
               />
               {/* <Icon name={'BellDefault'} size={'20'} color={'white'} /> */}
@@ -108,6 +111,12 @@ const HeaderHome = () => {
           </HStack>
         </Box>
       </Box>
+
+      <Backdrop isOpen={open} onClose={handleBackdrop} title={'Version'}>
+        <Box marginY={2}>
+          <Text variant="body-sm">{`Version: ${getVersion()}`}</Text>
+        </Box>
+      </Backdrop>
     </>
   );
 };
