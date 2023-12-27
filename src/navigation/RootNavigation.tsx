@@ -2,18 +2,26 @@ import {NavigationContainer} from '@react-navigation/native';
 import useCodePush from '@screens/CodePush/hook/UseCodePush';
 import UpdateApp from '@screens/CodePush/UpdateApp';
 import React from 'react';
+import CodePush from 'react-native-code-push';
 import AppStack from './AppStack/AppStack';
 import TabBar from './Tab-bar/TabBar';
 
-const RootNavigation = () => {
+const RootNavigation: React.FC = () => {
   // const codePushUpdate = true;
   const {progress, syncMessage} = useCodePush();
+
+  const checkUpdate = async () => {
+    const update = await CodePush.checkForUpdate();
+    return update;
+  };
+
+  const update = checkUpdate();
 
   console.log('progress', progress);
   console.log('syncMessage', syncMessage);
   return (
     <NavigationContainer>
-      {progress || syncMessage ? (
+      {!!update ? (
         <UpdateApp progress={progress} subHeader={syncMessage} />
       ) : (
         <AppStack />
