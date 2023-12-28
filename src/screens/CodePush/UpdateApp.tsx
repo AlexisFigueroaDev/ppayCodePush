@@ -46,6 +46,16 @@ const UpdateApp: React.FC<IUpdateApp> = ({
             {`progress: ${progress}`}
           </Text>
         </Box>
+        <Box marginY={2}>
+          <Text variant="bodyBold-lg" color="white">
+            {`syncMessage: ${syncMessage}`}
+          </Text>
+        </Box>
+        <Box marginY={2}>
+          <Text variant="bodyBold-lg" color="white">
+            {`syncStatusPush: ${syncStatusPush}`}
+          </Text>
+        </Box>
       </Box>
     </Flex>
   );
