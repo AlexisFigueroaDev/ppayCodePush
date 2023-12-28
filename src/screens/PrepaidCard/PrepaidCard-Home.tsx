@@ -27,14 +27,9 @@ const PrepaidCardHome = () => {
         </FullWidthSolidButton>
       </Box>
 
-      <Backdrop isOpen={open} onClose={handleBackdrop} title={'Hola IOS 1'}>
+      <Backdrop isOpen={open} onClose={handleBackdrop} title={'Resultado Ios'}>
         <Box marginY={2}>
-          <Text variant="body-sm">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi,
-            nulla temporibus. Assumenda maiores nemo reprehenderit obcaecati,
-            earum ea, odit veniam fugit rerum sint tenetur consectetur quod
-            tempore quo eius omnis?
-          </Text>
+          <Text variant="body-sm">CodePush 1</Text>
         </Box>
       </Backdrop>
     </>
