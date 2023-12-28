@@ -93,7 +93,6 @@ const useCodePush = (): UseCodePushReturn => {
           codePush.sync(
             {
               installMode: codePush.InstallMode.IMMEDIATE,
-              minimumBackgroundDuration: 600,
             },
             syncStatusChangedCallback,
             // codePushSyncHandler.syncStatusChanged.bind(codePushSyncHandler),
