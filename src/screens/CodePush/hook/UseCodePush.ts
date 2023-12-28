@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react';
 
 import SplashScreen from 'react-native-bootsplash';
 import codePush, {DownloadProgress} from 'react-native-code-push';
+import {CodePushDownloadProgressHandler} from './handleCodePushProgress';
 import {CodePushSyncStatusHandler} from './HandleCodePushStatus';
 
 interface UseCodePushReturn {
@@ -25,6 +26,13 @@ const useCodePush = (): UseCodePushReturn => {
     (message: string | undefined) => {
       // Implementa tu lógica para setSyncMessage
       setStatusSelected(message);
+    },
+  );
+
+  const codePushDownloadProgressHandler = new CodePushDownloadProgressHandler(
+    progress => {
+      // Lógica para setProgress
+      setProgress(progress);
     },
   );
 
@@ -88,7 +96,10 @@ const useCodePush = (): UseCodePushReturn => {
             },
             // syncStatusChangedCallback,
             codePushSyncHandler.syncStatusChanged.bind(codePushSyncHandler),
-            downloadProgressCallback,
+            codePushDownloadProgressHandler.downloadProgressCallback.bind(
+              codePushDownloadProgressHandler,
+            ),
+            // downloadProgressCallback,
           );
         }
       } catch (error) {
