@@ -37,7 +37,7 @@ export class CodePushSyncStatusHandler {
         this.setSyncMessage('An error occurred during the update...');
         break;
       default:
-        this.setSyncMessage(undefined);
+        this.setSyncMessage('No hay status para validar');
         break;
     }
   }

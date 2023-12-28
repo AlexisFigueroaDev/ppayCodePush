@@ -20,12 +20,14 @@ const useCodePush = (): UseCodePushReturn => {
   const [updateCheck, setUpdateCheck] = useState<unknown>();
   const [catchError, setCatchError] = useState<boolean>(false);
   const [syncStatusPush, setSyncStatusPush] = useState<unknown>();
-  const [statusSelected, setStatusSelected] = useState<unknown>();
+  const [statusSelected, setStatusSelected] = useState<
+    codePush.SyncStatus | undefined
+  >();
 
   const codePushSyncHandler = new CodePushSyncStatusHandler(
     (message: string | undefined) => {
       // Implementa tu lógica para setSyncMessage
-      setStatusSelected(message);
+      setSyncMessage(message);
     },
   );
 

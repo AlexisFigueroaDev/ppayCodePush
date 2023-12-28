@@ -39,27 +39,14 @@ const UpdateApp: React.FC<IUpdateApp> = ({
         </Box>
         <Box marginY={2}>
           <Text variant="bodyBold-lg" color="white">
-            {syncMessage ? syncMessage : subHeader}
-          </Text>
-        </Box>
-        <Box marginY={2}>
-          <Text variant="bodyBold-lg" color="white">
-            {progress}
+            {syncMessage
+              ? `syncMessage: ${progress}`
+              : `subHeader: ${subHeader}`}
           </Text>
         </Box>
         <Box marginY={2}>
           <Text variant="bodyBold-lg" color="white">
             {`progress: ${progress}`}
-          </Text>
-        </Box>
-        <Box marginY={2}>
-          <Text variant="bodyBold-lg" color="white">
-            {`syncMessage: ${syncMessage}`}
-          </Text>
-        </Box>
-        <Box marginY={2}>
-          <Text variant="bodyBold-lg" color="white">
-            {`statusSelected: ${statusSelected}`}
           </Text>
         </Box>
       </Box>
