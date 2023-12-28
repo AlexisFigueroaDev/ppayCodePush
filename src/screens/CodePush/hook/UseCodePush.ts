@@ -94,12 +94,10 @@ const useCodePush = (): UseCodePushReturn => {
               installMode: codePush.InstallMode.IMMEDIATE,
               minimumBackgroundDuration: 600,
             },
-            // syncStatusChangedCallback,
             codePushSyncHandler.syncStatusChanged.bind(codePushSyncHandler),
             codePushDownloadProgressHandler.downloadProgressCallback.bind(
               codePushDownloadProgressHandler,
             ),
-            // downloadProgressCallback,
           );
         }
       } catch (error) {
