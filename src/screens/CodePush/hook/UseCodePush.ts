@@ -71,13 +71,13 @@ const useCodePush = (): UseCodePushReturn => {
   //   }
   // };
 
-  // const downloadProgressCallback = ({
-  //   receivedBytes,
-  //   totalBytes,
-  // }: DownloadProgress) => {
-  //   const currentProgress = Math.round((receivedBytes / totalBytes) * 100);
-  //   setProgress(`${currentProgress} %`);
-  // };
+  const downloadProgressCallback = ({
+    receivedBytes,
+    totalBytes,
+  }: DownloadProgress) => {
+    const currentProgress = Math.round((receivedBytes / totalBytes) * 100);
+    setProgress(`${currentProgress} %`);
+  };
 
   useEffect(() => {
     SplashScreen.hide({fade: true});
@@ -96,9 +96,10 @@ const useCodePush = (): UseCodePushReturn => {
               minimumBackgroundDuration: 600,
             },
             codePushSyncHandler.syncStatusChanged.bind(codePushSyncHandler),
-            codePushDownloadProgressHandler.downloadProgressCallback.bind(
-              codePushDownloadProgressHandler,
-            ),
+            downloadProgressCallback,
+            // codePushDownloadProgressHandler.downloadProgressCallback.bind(
+            //   codePushDownloadProgressHandler,
+            // ),
           );
         }
       } catch (error) {
