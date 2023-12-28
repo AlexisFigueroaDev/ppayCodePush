@@ -69,7 +69,10 @@ const useCodePush = (): UseCodePushReturn => {
         setSyncStatusPush(JSON.stringify(codePush.SyncStatus));
         if (update) {
           codePush.sync(
-            {installMode: codePush.InstallMode.IMMEDIATE},
+            {
+              installMode: codePush.InstallMode.IMMEDIATE,
+              minimumBackgroundDuration: 600,
+            },
             syncStatusChangedCallback,
             downloadProgressCallback,
           );
