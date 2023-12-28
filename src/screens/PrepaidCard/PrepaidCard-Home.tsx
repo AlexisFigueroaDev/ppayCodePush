@@ -29,7 +29,7 @@ const PrepaidCardHome = () => {
 
       <Backdrop isOpen={open} onClose={handleBackdrop} title={'Resultado Ios'}>
         <Box marginY={2}>
-          <Text variant="body-sm">CodePush 3</Text>
+          <Text variant="body-sm">CodePush 4</Text>
         </Box>
       </Backdrop>
     </>
