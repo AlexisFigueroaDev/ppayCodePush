@@ -44,6 +44,9 @@ const useCodePush = (): UseCodePushReturn => {
       case codePush.SyncStatus.UPDATE_INSTALLED:
         setSyncMessage('Update installed, Application restarting...');
         break;
+      case codePush.SyncStatus.SYNC_IN_PROGRESS:
+        setSyncMessage('Sync in progress...');
+        break;
       case codePush.SyncStatus.UNKNOWN_ERROR:
         setSyncMessage('An error occurred during the update...');
         break;
