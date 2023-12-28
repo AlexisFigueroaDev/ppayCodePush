@@ -9,6 +9,7 @@ interface UseCodePushReturn {
   updateCheck?: unknown;
   catchError?: unknown;
   syncStatusPush?: unknown;
+  statusSelected?: unknown;
 }
 
 const useCodePush = (): UseCodePushReturn => {
@@ -17,8 +18,10 @@ const useCodePush = (): UseCodePushReturn => {
   const [updateCheck, setUpdateCheck] = useState<unknown>();
   const [catchError, setCatchError] = useState<boolean>(false);
   const [syncStatusPush, setSyncStatusPush] = useState<unknown>();
+  const [statusSelected, setStatusSelected] = useState<unknown>();
 
   const syncStatusChangedCallback = (syncStatus: codePush.SyncStatus) => {
+    setStatusSelected(syncStatus);
     switch (syncStatus) {
       case codePush.SyncStatus.CHECKING_FOR_UPDATE:
         setSyncMessage('Checking for update...');
@@ -91,6 +94,7 @@ const useCodePush = (): UseCodePushReturn => {
     updateCheck,
     catchError,
     syncStatusPush,
+    statusSelected,
   };
 };
 
