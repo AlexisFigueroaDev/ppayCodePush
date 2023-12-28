@@ -6,14 +6,22 @@ import {Text} from '@ui/text';
 import {Platform} from 'react-native';
 import {Avatar} from '@ui/avatar';
 import {IconButtonTransparent} from '@ui/button/icon-button-transparent';
-import {getVersion} from 'react-native-device-info';
+import {getVersion, getBuildNumber} from 'react-native-device-info';
 import {Backdrop} from '@ui/backdrop';
 
 const HeaderHome = () => {
   const [open, setOpen] = useState(false);
+  const [buildID, setBuildID] = useState('');
   const handleBackdrop = () => {
     setOpen(!open);
+    setBuild();
   };
+
+  const setBuild = () => {
+    // getBuildId().then((v => setBuildID(v)))
+    setBuildID(getBuildNumber());
+  };
+
   return (
     <>
       <Box
@@ -114,7 +122,7 @@ const HeaderHome = () => {
 
       <Backdrop isOpen={open} onClose={handleBackdrop} title={'Version'}>
         <Box marginY={2}>
-          <Text variant="body-sm">{`Version: ${getVersion()}`}</Text>
+          <Text variant="body-sm">{`Version: ${getVersion()}-${buildID}`}</Text>
         </Box>
       </Backdrop>
     </>
