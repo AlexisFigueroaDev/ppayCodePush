@@ -18,11 +18,9 @@ const useCodePush = (): UseCodePushReturn => {
   const [syncMessage, setSyncMessage] = useState<string>();
   const [progress, setProgress] = useState<string>();
   const [updateCheck, setUpdateCheck] = useState<unknown>();
-  const [catchError, setCatchError] = useState<boolean>(false);
+  const [catchError, setCatchError] = useState<unknown>();
   const [syncStatusPush, setSyncStatusPush] = useState<unknown>();
-  const [statusSelected, setStatusSelected] = useState<
-    codePush.SyncStatus | undefined
-  >();
+  const [statusSelected, setStatusSelected] = useState<unknown>();
 
   const codePushSyncHandler = new CodePushSyncStatusHandler(
     (message: string | undefined) => {
@@ -88,6 +86,7 @@ const useCodePush = (): UseCodePushReturn => {
       codePush.CheckFrequency.ON_APP_RESUME;
       try {
         const update = await codePush.checkForUpdate();
+        // const update = true;
         setUpdateCheck(JSON.stringify(update));
         setSyncStatusPush(JSON.stringify(codePush.SyncStatus));
         if (update) {
@@ -104,7 +103,7 @@ const useCodePush = (): UseCodePushReturn => {
         }
       } catch (error) {
         console.error('ERROOOOOOR:', error);
-        setCatchError(true);
+        setCatchError(error);
       }
     };
     checkForUpdates();

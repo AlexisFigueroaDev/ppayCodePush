@@ -1,8 +1,4 @@
-export interface DownloadProgress {
-  receivedBytes: number;
-  totalBytes: number;
-}
-
+import {DownloadProgress} from 'react-native-code-push';
 export class CodePushDownloadProgressHandler {
   private setProgress: (progress: string) => void;
 
