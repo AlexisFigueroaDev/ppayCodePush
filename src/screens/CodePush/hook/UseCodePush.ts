@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react';
 
 import SplashScreen from 'react-native-bootsplash';
 import codePush, {DownloadProgress} from 'react-native-code-push';
+import {CodePushSyncStatusHandler} from './HandleCodePushStatus';
 
 interface UseCodePushReturn {
   syncMessage?: string;
@@ -20,8 +21,14 @@ const useCodePush = (): UseCodePushReturn => {
   const [syncStatusPush, setSyncStatusPush] = useState<unknown>();
   const [statusSelected, setStatusSelected] = useState<unknown>();
 
+  const codePushSyncHandler = new CodePushSyncStatusHandler(
+    (message: string | undefined) => {
+      // Implementa tu lógica para setSyncMessage
+      setStatusSelected(message);
+    },
+  );
+
   const syncStatusChangedCallback = (syncStatus: codePush.SyncStatus) => {
-    setStatusSelected(syncStatus);
     switch (syncStatus) {
       case codePush.SyncStatus.CHECKING_FOR_UPDATE:
         setSyncMessage('Checking for update...');
@@ -79,7 +86,8 @@ const useCodePush = (): UseCodePushReturn => {
               installMode: codePush.InstallMode.IMMEDIATE,
               minimumBackgroundDuration: 600,
             },
-            syncStatusChangedCallback,
+            // syncStatusChangedCallback,
+            codePushSyncHandler.syncStatusChanged.bind(codePushSyncHandler),
             downloadProgressCallback,
           );
         }
