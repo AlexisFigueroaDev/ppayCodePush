@@ -5,7 +5,7 @@ import codePush, {DownloadProgress} from 'react-native-code-push';
 
 interface UseCodePushReturn {
   syncMessage?: string;
-  progress?: string;
+  progress: string;
   updateCheck?: unknown;
   catchError?: unknown;
   syncStatusPush?: unknown;
@@ -13,7 +13,7 @@ interface UseCodePushReturn {
 
 const useCodePush = (): UseCodePushReturn => {
   const [syncMessage, setSyncMessage] = useState<string>();
-  const [progress, setProgress] = useState<string>();
+  const [progress, setProgress] = useState<string>('');
   const [updateCheck, setUpdateCheck] = useState<unknown>();
   const [catchError, setCatchError] = useState<unknown>();
   const [syncStatusPush, setSyncStatusPush] = useState<unknown>();
@@ -55,31 +55,36 @@ const useCodePush = (): UseCodePushReturn => {
     totalBytes,
   }: DownloadProgress) => {
     const currentProgress = Math.round((receivedBytes / totalBytes) * 100);
-    setProgress(`${currentProgress} %`);
+    setProgress(`${currentProgress}`);
   };
 
   useEffect(() => {
     SplashScreen.hide({fade: true});
-    const checkForUpdates = async () => {
-      codePush.notifyAppReady();
-      codePush.CheckFrequency.ON_APP_RESUME;
-      try {
-        const update = await codePush.checkForUpdate();
-        setUpdateCheck(JSON.stringify(update));
-        setSyncStatusPush(JSON.stringify(codePush.SyncStatus));
-        if (update) {
-          codePush.sync(
-            {installMode: codePush.InstallMode.IMMEDIATE},
-            syncStatusChangedCallback,
-            downloadProgressCallback,
-          );
+    if (__DEV__) {
+      setSyncMessage('UPDATE_IGNORED');
+      setProgress('80');
+    } else {
+      const checkForUpdates = async () => {
+        codePush.notifyAppReady();
+        codePush.CheckFrequency.ON_APP_RESUME;
+        try {
+          const update = await codePush.checkForUpdate();
+          setUpdateCheck(JSON.stringify(update));
+          setSyncStatusPush(JSON.stringify(codePush.SyncStatus));
+          if (update) {
+            codePush.sync(
+              {installMode: codePush.InstallMode.IMMEDIATE},
+              syncStatusChangedCallback,
+              downloadProgressCallback,
+            );
+          }
+        } catch (error) {
+          console.error('ERROOOOOOR:', error);
+          setCatchError(error);
         }
-      } catch (error) {
-        console.error('ERROOOOOOR:', error);
-        setCatchError(error);
-      }
-    };
-    checkForUpdates();
+      };
+      checkForUpdates();
+    }
   }, [updateCheck]);
 
   return {

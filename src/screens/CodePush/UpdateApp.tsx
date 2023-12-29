@@ -4,6 +4,7 @@ import {Box, Flex, StatusBar} from 'native-base';
 import React from 'react';
 import {Platform} from 'react-native';
 import useCodePush from './hook/UseCodePush';
+import * as Progress from 'react-native-progress';
 interface IUpdateApp {
   header?: string;
   subHeader?: string;
@@ -17,6 +18,7 @@ const UpdateApp: React.FC<IUpdateApp> = ({
   const {progress, syncMessage, updateCheck, catchError, syncStatusPush} =
     useCodePush();
 
+  const numberProgressBar = parseFloat(progress) / 100;
   return (
     <Flex backgroundColor={colors.secondaryFive['60']} flex={1}>
       <Box
@@ -40,6 +42,13 @@ const UpdateApp: React.FC<IUpdateApp> = ({
           <Text variant="bodyBold-lg" color="white">
             {progress}
           </Text>
+        </Box>
+        <Box marginY={2}>
+          <Progress.Bar
+            progress={numberProgressBar || 0}
+            width={200}
+            color={'#3eff3F'}
+          />
         </Box>
       </Box>
     </Flex>

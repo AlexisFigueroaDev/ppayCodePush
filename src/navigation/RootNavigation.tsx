@@ -11,10 +11,13 @@ const RootNavigation: React.FC = () => {
   // const codePushUpdate = true;
   // const {progress, syncMessage} = useCodePush();
   const [updatePending, setUpdatePending] = useState(false);
-
   const checkUpdate = async () => {
-    const update = await CodePush.checkForUpdate();
-    return setUpdatePending(!!update);
+    if (__DEV__) {
+      return setUpdatePending(false);
+    } else {
+      const update = await CodePush.checkForUpdate();
+      return setUpdatePending(!!update);
+    }
   };
 
   useEffect(() => {
