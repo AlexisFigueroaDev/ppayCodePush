@@ -42,7 +42,7 @@ const UpdateApp: React.FC<IUpdateApp> = ({
         <Box marginY={2}>
           <Text variant="bodyBold-lg" color="white">
             {syncMessage
-              ? `syncMessage: ${progress}`
+              ? `syncMessage: ${syncMessage}`
               : `subHeader: ${subHeader}`}
           </Text>
         </Box>
@@ -57,6 +57,11 @@ const UpdateApp: React.FC<IUpdateApp> = ({
             width={200}
             color={'#3eff3F'}
           />
+        </Box>
+        <Box marginY={2}>
+          <Text variant="bodyBold-lg" color="white">
+            {`catchError: ${catchError}`}
+          </Text>
         </Box>
       </Box>
     </Flex>

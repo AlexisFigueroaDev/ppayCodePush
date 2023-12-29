@@ -32,7 +32,12 @@ const PrepaidCardHome = () => {
         onClose={handleBackdrop}
         title={'Hola Mundo Android'}>
         <Box marginY={2}>
-          <Text variant="body-sm">CodePush 14</Text>
+          <Text variant="body-sm">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
+            explicabo id, ea sint ipsa enim reiciendis doloremque voluptates
+            totam error incidunt esse, quam nihil, animi impedit! Aspernatur
+            distinctio nobis in!
+          </Text>
         </Box>
       </Backdrop>
     </>
