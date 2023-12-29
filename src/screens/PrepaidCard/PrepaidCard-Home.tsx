@@ -27,7 +27,10 @@ const PrepaidCardHome = () => {
         </FullWidthSolidButton>
       </Box>
 
-      <Backdrop isOpen={open} onClose={handleBackdrop} title={'Resultado Ios'}>
+      <Backdrop
+        isOpen={open}
+        onClose={handleBackdrop}
+        title={'Hola Mundo Android'}>
         <Box marginY={2}>
           <Text variant="body-sm">CodePush 14</Text>
         </Box>

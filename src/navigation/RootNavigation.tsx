@@ -9,15 +9,13 @@ import codePush from 'react-native-code-push';
 
 const RootNavigation: React.FC = () => {
   const [updatePending, setUpdatePending] = useState(false);
-  const {catchError} = useCodePush();
-
   const checkUpdate = async () => {
-    const update = await CodePush.checkForUpdate();
-
-    if (catchError) {
+    if (__DEV__) {
       return setUpdatePending(false);
+    } else {
+      const update = await CodePush.checkForUpdate();
+      return setUpdatePending(!!update);
     }
-    return setUpdatePending(!!update);
   };
 
   useEffect(() => {
