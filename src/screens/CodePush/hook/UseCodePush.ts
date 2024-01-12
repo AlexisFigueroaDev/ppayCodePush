@@ -22,20 +22,6 @@ const useCodePush = (): UseCodePushReturn => {
   const [syncStatusPush, setSyncStatusPush] = useState<unknown>();
   const [statusSelected, setStatusSelected] = useState<unknown>();
 
-  // const codePushSyncHandler = new CodePushSyncStatusHandler(
-  //   (message: string | undefined) => {
-  //     // Implementa tu lógica para setSyncMessage
-  //     setSyncMessage(message);
-  //   },
-  // );
-
-  // const codePushDownloadProgressHandler = new CodePushDownloadProgressHandler(
-  //   progress => {
-  //     // Lógica para setProgress
-  //     setProgress(progress);
-  //   },
-  // );
-
   const syncStatusChangedCallback = (syncStatus: codePush.SyncStatus) => {
     switch (syncStatus) {
       case codePush.SyncStatus.CHECKING_FOR_UPDATE:
@@ -87,7 +73,7 @@ const useCodePush = (): UseCodePushReturn => {
     } else {
       const checkForUpdates = async () => {
         codePush.notifyAppReady();
-        codePush.CheckFrequency.ON_APP_RESUME;
+        codePush.CheckFrequency.ON_APP_START;
         try {
           const update = await codePush.checkForUpdate();
           setUpdateCheck(JSON.stringify(update));
