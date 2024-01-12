@@ -1,14 +1,14 @@
-import React, { FC } from 'react';
+import React, {FC} from 'react';
 
-import { AspectRatio, Box, Image, Modal } from 'native-base';
+import {AspectRatio, Box, Image, Modal} from 'native-base';
 
-import { FullWidthSolidButton } from '@ui/button';
-import { Illustration, IllustrationKey } from '@ui/illustrations';
-import { VStack } from '@ui/layout';
-import { Text } from '@ui/text';
+import {FullWidthSolidButton} from '@ui/button';
+import {Illustration, IllustrationKey} from '@ui/illustrations';
+import {VStack} from '@ui/layout';
+import {Text} from '@ui/text';
 
-import { ModalCloseButton } from './components/modal-close-button';
-import { PopupProps } from './types';
+import {ModalCloseButton} from './components/modal-close-button';
+import {PopupProps} from './types';
 
 export const PopupModal: FC<PopupProps> = ({
   /* Title for the Pop Up */
@@ -45,8 +45,7 @@ export const PopupModal: FC<PopupProps> = ({
       }}
       paddingX={4}
       animationPreset="slide"
-      _slide={{ duration: 800 }}
-    >
+      _slide={{duration: 800}}>
       <Modal.Content maxHeight={560} width="full">
         <Modal.Body>
           <VStack space={8}>
@@ -56,8 +55,7 @@ export const PopupModal: FC<PopupProps> = ({
                   width="full"
                   ratio={21 / 9}
                   backgroundColor="primaryDark.30"
-                  rounded="sm"
-                >
+                  rounded="sm">
                   <Image
                     rounded="sm"
                     source={{
@@ -89,8 +87,7 @@ export const PopupModal: FC<PopupProps> = ({
               {primaryButtonAction && primaryButtonTitle ? (
                 <FullWidthSolidButton
                   testID="popup-modal-primary-button"
-                  onPress={primaryButtonAction}
-                >
+                  onPress={primaryButtonAction}>
                   {primaryButtonTitle}
                 </FullWidthSolidButton>
               ) : null}
@@ -101,8 +98,7 @@ export const PopupModal: FC<PopupProps> = ({
                 <FullWidthSolidButton
                   testID="popup-modal-secondary-button"
                   variant="tertiary"
-                  onPress={secondaryButtonAction}
-                >
+                  onPress={secondaryButtonAction}>
                   {secondaryButtonTitle}
                 </FullWidthSolidButton>
               ) : null}

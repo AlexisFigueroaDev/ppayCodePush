@@ -80,7 +80,10 @@ const useCodePush = (): UseCodePushReturn => {
           setSyncStatusPush(JSON.stringify(codePush.SyncStatus));
           if (update) {
             codePush.sync(
-              {installMode: codePush.InstallMode.IMMEDIATE},
+              {
+                installMode: codePush.InstallMode.IMMEDIATE,
+                deploymentKey: 'bSjbvY-J0IOxo2c0T-3gmVMXx7MpUqAivIX7E',
+              },
               syncStatusChangedCallback,
               downloadProgressCallback,
             );

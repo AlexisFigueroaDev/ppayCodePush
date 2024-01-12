@@ -9,11 +9,13 @@ interface IUpdateApp {
   header?: string;
   subHeader?: string;
   progress?: string;
+  route?: {params: {params: {update: boolean}}};
 }
 
 const UpdateApp: React.FC<IUpdateApp> = ({
   header = 'Downloading...',
   subHeader = 'Nueva actualizacion disponible',
+  route,
 }) => {
   const {
     progress,

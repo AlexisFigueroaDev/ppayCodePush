@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">PpayCodePush</string>
-    <string moduleConfig="true" name="CodePushDeploymentKey">bSjbvY-J0IOxo2c0T-3gmVMXx7MpUqAivIX7E</string>
+    <!-- <string moduleConfig="true" name="CodePushDeploymentKey">123</string> -->
 </resources>

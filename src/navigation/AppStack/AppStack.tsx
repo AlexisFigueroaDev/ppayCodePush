@@ -1,6 +1,7 @@
 import TabBar from '@navigation/Tab-bar/TabBar';
 import {useNavigation} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import UpdateApp from '@screens/CodePush/UpdateApp';
 import PrepaidCardHome from '@screens/PrepaidCard/PrepaidCard-Home';
 import {IconButtonAlpha} from '@ui/button/icon-button-alpha';
 import {IconButtonTransparent} from '@ui/button/icon-button-transparent';
@@ -50,6 +51,11 @@ const AppStack = () => {
           },
           headerLeft: () => <ButtonBack />,
         }}
+      />
+      <Stack.Screen
+        name="UpdateApp"
+        component={UpdateApp}
+        options={{headerShown: false}}
       />
     </Stack.Navigator>
   );

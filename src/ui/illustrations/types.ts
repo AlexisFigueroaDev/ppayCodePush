@@ -22,6 +22,7 @@ import ShopQR from '../../assets/illustrations/Shop-QR.svg';
 import Unplugged from '../../assets/illustrations/Unplugged.svg';
 import UserNext from '../../assets/illustrations/user-next.svg';
 import User from '../../assets/illustrations/user.svg';
+import Megaphone from '../../assets/illustrations/Megaphone.svg';
 
 export const IllustrationsPaths = {
   // pay
@@ -49,6 +50,7 @@ export const IllustrationsPaths = {
   SellQR,
   PaperSuccess,
   User,
+  Megaphone,
 };
 
 export type IllustrationKey = keyof typeof IllustrationsPaths;

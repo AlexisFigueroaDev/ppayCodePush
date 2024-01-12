@@ -6,25 +6,12 @@ import CodePush from 'react-native-code-push';
 import AppStack from './AppStack/AppStack';
 import TabBar from './Tab-bar/TabBar';
 import codePush from 'react-native-code-push';
+import Codepushscreen from '@screens/CodePush/Code-push-screen';
 
 const RootNavigation: React.FC = () => {
-  const [updatePending, setUpdatePending] = useState(false);
-  const checkUpdate = async () => {
-    if (__DEV__) {
-      return setUpdatePending(false);
-    } else {
-      const update = await CodePush.checkForUpdate();
-      return setUpdatePending(!!update);
-    }
-  };
-
-  useEffect(() => {
-    checkUpdate();
-  }, [updatePending]);
-
   return (
     <NavigationContainer>
-      {updatePending ? <UpdateApp /> : <AppStack />}
+      <AppStack />
     </NavigationContainer>
   );
 };
